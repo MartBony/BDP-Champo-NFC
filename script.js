@@ -13,7 +13,7 @@ scanbutton.addEventListener("click", async event => {
         ndef.addEventListener("reading", ({ message, serialNumber }) => {
             scanbutton.innerHTML = "scan réussi"
             fetchBracelet(serialNumber).then(res => {
-                scanbutton.innerHTML = "Resultat : " + res
+                scanbutton.innerHTML = "Vous avez bu " + res + " fois"
             });
             console.log(message, serialNumber);
         });
@@ -38,8 +38,6 @@ let fetchBracelet = str => fetcher({
     method: 'POST',
     url: 'getbracelets.php',
     data: { bracelet: str }
-}).then(res => {
-    console.log(res);
-});;
+});
 
 fetchBracelet("uzegf");
