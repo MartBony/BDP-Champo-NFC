@@ -3,17 +3,15 @@ document.getElementById("scanButton").addEventListener("click", async event => {
     try {
         const ndef = new NDEFReader();
         await ndef.scan();
-        console.log("> Scan started");
 
         ndef.addEventListener("readingerror", () => {
-            console.log("Argh! Cannot read data from the NFC tag. Try another one?");
+            console.log("Cannot read data from the NFC tag. Try another one?");
         });
 
         ndef.addEventListener("reading", ({ message, serialNumber }) => {
-            console.log(`> Serial Number: ${serialNumber}`);
-            console.log(`> Records: (${message.records.length})`);
+            console.log(message, serialNumber);
         });
     } catch (error) {
-        console.log("Argh! " + error);
+        console.log(error);
     }
 });
