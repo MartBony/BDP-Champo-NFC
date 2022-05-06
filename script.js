@@ -5,10 +5,11 @@ document.getElementById("scanButton").addEventListener("click", async event => {
         await ndef.scan();
 
         ndef.addEventListener("readingerror", () => {
-            console.log("Cannot read data from the NFC tag. Try another one?");
+            event.currentTarget.innerHTML = "Echec"
         });
 
         ndef.addEventListener("reading", ({ message, serialNumber }) => {
+            event.currentTarget.innerHTML = "scan réussi"
             console.log(message, serialNumber);
         });
     } catch (error) {
