@@ -13,7 +13,7 @@ scanbutton.addEventListener("click", async event => {
         ndef.addEventListener("reading", ({ message, serialNumber }) => {
             scanbutton.innerHTML = "scan réussi"
             fetchBracelet(serialNumber).then(res => {
-                scanbutton.innerHTML = "Vous avez bu " + res + " fois"
+                scanbutton.innerHTML = "Vous avez bu " + res.count + " fois"
             });
             console.log(message, serialNumber);
         });

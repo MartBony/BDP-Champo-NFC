@@ -26,7 +26,7 @@ if($json[$data]){
 file_put_contents($file, json_encode($json));
 
 echo json_encode(array(
-    'res' => $json[$data]
+    'count' => $json[$data]
 ));
 
 /* echo json_encode(array(
