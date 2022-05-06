@@ -9,8 +9,6 @@ $json[$user] = array("first" => $first, "last" => $last);
 file_put_contents($file, json_encode($json));
 
 */
-
-require_once('./dbConnect.php');
 header("Content-Type: application/json");
 
 $data = $_POST['bracelet'];
