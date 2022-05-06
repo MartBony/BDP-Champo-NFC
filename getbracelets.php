@@ -25,7 +25,6 @@ if($json[$data]){
     $json[$data] = 1;
 }
 
-
 file_put_contents($file, json_encode($json));
 
 echo json_encode(array(
