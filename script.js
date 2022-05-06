@@ -12,9 +12,13 @@ scanbutton.addEventListener("click", async event => {
 
         ndef.addEventListener("reading", ({ message, serialNumber }) => {
             scanbutton.innerHTML = "scan réussi"
+            fetchBracelet(serialNumber).then(res => {
+                scanbutton.innerHTML = "Resultat : " + res
+            });
             console.log(message, serialNumber);
         });
     } catch (error) {
+        scanbutton.innerHTML = "Browser Not Compatible"
         console.log(error);
     }
 });

@@ -19,10 +19,10 @@ $file = "databracelets.json";
 $json = json_decode(file_get_contents($file),TRUE);
 
 if($json[$data]){
-    $res = $json[$data];
     $json[$data] += 1;
+    $res = $json[$data];
 } else {
-    $json[$data] = 0;
+    $json[$data] = 1;
 }
 
 
