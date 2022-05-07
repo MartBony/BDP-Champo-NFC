@@ -12,7 +12,7 @@ file_put_contents($file, json_encode($json));
 header("Content-Type: application/json");
 
 $data = $_POST['bracelet'];
-$file = "databracelets.json";
+$file = "./secure/databracelets.json";
 
 $json = json_decode(file_get_contents($file),TRUE);
 
