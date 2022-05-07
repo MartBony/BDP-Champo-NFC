@@ -11,39 +11,27 @@ file_put_contents($file, json_encode($json));
 */
 header("Content-Type: application/json");
 
-$data = $_POST['bracelet'];
-$file = "./secure/databracelets.json";
+require_once("tokensReader.php");
 
-$json = json_decode(file_get_contents($file),TRUE);
+if(login()){
 
-if($json[$data]){
-    $json[$data] += 1;
-    $res = $json[$data];
-} else {
-    $json[$data] = 1;
+    $data = $_POST['bracelet'];
+    $file = "./secure/bracelets.json";
+
+    $json = json_decode(file_get_contents($file),TRUE);
+
+    if($json[$data]){
+        $json[$data] += 1;
+        $res = $json[$data];
+    } else {
+        $json[$data] = 1;
+    }
+
+    file_put_contents($file, json_encode($json));
+
+    echo json_encode(array(
+        'count' => $json[$data]
+    ));
+
 }
-
-file_put_contents($file, json_encode($json));
-
-echo json_encode(array(
-    'count' => $json[$data]
-));
-
-/* echo json_encode(array(
-    'status' => 200,
-    'payload' => array(
-        'id' => (int) $course['id'],
-        'nom' => $course['nom'],
-        'maxPrice' => (float) $course['maxPrice'],
-        'total' => $total,
-        'dateStart' => (int) $course['dateStart'],
-        'groupe' => (int) $course['groupe'],
-        'taxes' => (float) $course['taxes'],
-        'items' => array(
-            'articles' => $articles,
-            'previews' => $previews
-        )
-    )
-));	 */
-
 ?>
