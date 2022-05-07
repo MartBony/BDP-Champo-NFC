@@ -21,6 +21,8 @@ body{
 main{
     width: 100%;
     height: 100vh;
+    padding: 10px;
+    box-sizing: border-box;
     display: none;
     flex-direction: column;
     align-items: center;
@@ -128,6 +130,20 @@ main h1{
 #resultsPage span:nth-child(1){
     font-size: 3em;
     vertical-align: -12px;
+}
+
+#resultsPage button{position: fixed;
+    bottom: 10px;
+    width: calc(100% - 20px);
+    border: none;
+    outline: none;
+    background: white;
+    border-radius: 2px;
+    background: linear-gradient(6deg, rgb(244, 84, 49) 0%, rgb(255, 176, 128) 100%);
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    font-size: 0.5em;
 }
 
 #super{

@@ -29,7 +29,10 @@ views[0].addEventListener("click", async event => {
     }
 });
 
-
+document.querySelector("#resultsPage button").addEventListener("click", event => {
+    reading = true;
+    openView(1);
+});
 
 function drawResults(nombre){
     document.getElementById("super").innerHTML = nombre == 1 ? "er" : "ème";
@@ -65,4 +68,4 @@ let fetchBracelet = str => fetcher({
     data: { bracelet: str }
 });
 
-openView(0)
+openView(3)
