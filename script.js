@@ -1,25 +1,30 @@
-const scanbutton = document.getElementById("scanButton");
 const views = Array.from(document.getElementsByTagName("main"));
-
-scanbutton.addEventListener("click", async event => {
+var reading = false;
+views[0].addEventListener("click", async event => {
+    reading = true;
     openView(1);
     try {
         const ndef = new NDEFReader();
         await ndef.scan();
 
+
         ndef.addEventListener("readingerror", () => {
-            scanbutton.innerHTML = "Echec"
+            views[0].innerHTML = "Echec"
         });
 
         ndef.addEventListener("reading", ({ message, serialNumber }) => {
-            scanbutton.innerHTML = "scan réussi"
-            fetchBracelet(serialNumber).then(res => {
-                scanbutton.innerHTML = "Vous avez bu " + res.count + " fois"
-            });
-            console.log(message, serialNumber);
+            if(reading){
+                reading = false;
+                openView(0);
+                views[0].innerHTML = "scan réussi"
+                fetchBracelet(serialNumber).then(res => {
+                    views[0].innerHTML = "Vous avez bu " + res.count + " fois"
+                });
+                console.log(message, serialNumber);
+            }
         });
     } catch (error) {
-        scanbutton.innerHTML = "Navigateur non compatible, utiliser chrome sur android"
+        views[0].innerHTML = "Navigateur non compatible, utiliser chrome sur android"
         console.log(error);
     }
 });
