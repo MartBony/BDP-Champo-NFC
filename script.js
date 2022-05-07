@@ -24,7 +24,7 @@ views[0].addEventListener("click", async event => {
             }
         });
     } catch (error) {
-        openView(3);
+        openView(4);
         console.log(error);
     }
 });
