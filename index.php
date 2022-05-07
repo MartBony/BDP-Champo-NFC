@@ -7,7 +7,8 @@
     <title>BDP Champo NFC Tool</title>
 </head>
 <body>
-    <main id="scanButton"><span></span></main>
+    <main id="scanButton"><div class="circles"><span></span></div><h1>Taper pour scanner</h1></main>
+    <main id="scanningPane"><div class="circles"><span></span><span></span><span></span></div><h1>En attente du scan</h1></main>
     <script src="script.js"></script>
 </body>
 </html>

@@ -1,7 +1,8 @@
 const scanbutton = document.getElementById("scanButton");
+const views = Array.from(document.getElementsByTagName("main"));
 
 scanbutton.addEventListener("click", async event => {
-    scanbutton.innerHTML = "scanning"
+    openView(1);
     try {
         const ndef = new NDEFReader();
         await ndef.scan();
@@ -18,10 +19,25 @@ scanbutton.addEventListener("click", async event => {
             console.log(message, serialNumber);
         });
     } catch (error) {
-        scanbutton.innerHTML = "Browser Not Compatible"
+        scanbutton.innerHTML = "Navigateur non compatible, utiliser chrome sur android"
         console.log(error);
     }
 });
+
+
+
+
+function openView(rank){
+    views.forEach((view, id) => {
+        if(id == rank){
+            view.style.display = "flex";
+        } else {
+            view.style.display = "none";
+        }
+    });
+}
+
+
 
 function fetcher(reqData){
 	return fetch(reqData.url, {
@@ -39,5 +55,7 @@ let fetchBracelet = str => fetcher({
     url: 'getbracelets.php',
     data: { bracelet: str }
 });
+
+openView(0)
 
 fetchBracelet("uzegf");
