@@ -2,10 +2,10 @@ const views = Array.from(document.getElementsByTagName("main"));
 var reading = false;
 views[0].addEventListener("click", async event => {
     reading = true;
-    openView(1);
     try {
         const ndef = new NDEFReader();
         await ndef.scan();
+        openView(1);
 
 
         ndef.addEventListener("readingerror", () => {
@@ -15,22 +15,25 @@ views[0].addEventListener("click", async event => {
         ndef.addEventListener("reading", ({ message, serialNumber }) => {
             if(reading){
                 reading = false;
-                openView(0);
-                views[0].innerHTML = "scan réussi"
+                openView(2);
                 fetchBracelet(serialNumber).then(res => {
-                    views[0].innerHTML = "Vous avez bu " + res.count + " fois"
+                    openView(3);
+                    drawResults(res.count);
                 });
                 console.log(message, serialNumber);
             }
         });
     } catch (error) {
-        views[0].innerHTML = "Navigateur non compatible, utiliser chrome sur android"
+        openView(3);
         console.log(error);
     }
 });
 
 
 
+function drawResults(nombre){
+    document.getElementById("nombre").innerHTML = nombre;
+}
 
 function openView(rank){
     views.forEach((view, id) => {
@@ -62,5 +65,3 @@ let fetchBracelet = str => fetcher({
 });
 
 openView(0)
-
-fetchBracelet("uzegf");
