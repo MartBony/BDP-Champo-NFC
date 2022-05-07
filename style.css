@@ -142,8 +142,8 @@ main h1{
     background: linear-gradient(6deg, rgb(244, 84, 49) 0%, rgb(255, 176, 128) 100%);
     color: white;
     font-weight: bold;
-    padding: 5px;
-    font-size: 0.5em;
+    padding: 10px;
+    font-size: 0.8em;
 }
 
 #super{
