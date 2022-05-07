@@ -13,6 +13,6 @@ function verifyPassword($input, $storedHash){
 	return password_verify(base64_encode(hash('sha384', $input, true)), $storedHash);
 }
 
-echo hashPassword("RadjdBg");
+echo hashPassword("nzd*fph#du");
 
 ?>
