@@ -68,4 +68,4 @@ let fetchBracelet = str => fetcher({
     data: { bracelet: str }
 });
 
-openView(3)
+openView(0);
