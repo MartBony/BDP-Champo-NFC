@@ -28,10 +28,6 @@ main{
     font-size: 2em;
 }
 
-.upper{
-    text-transform: uppercase;
-}
-
 .circles{
     position: relative;
     width: 100px;
@@ -127,4 +123,14 @@ main h1{
 
 #resultsPage span{
     display: inline;
+}
+
+#resultsPage span:nth-child(1){
+    font-size: 3em;
+    vertical-align: -12px;
+}
+
+#super{
+    font-size: 0.8em;
+    vertical-align: 30px;
 }

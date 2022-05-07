@@ -32,6 +32,7 @@ views[0].addEventListener("click", async event => {
 
 
 function drawResults(nombre){
+    document.getElementById("super").innerHTML = nombre == 1 ? "er" : "ème";
     document.getElementById("nombre").innerHTML = nombre;
 }
 
