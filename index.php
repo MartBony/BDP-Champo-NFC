@@ -5,6 +5,9 @@
 		header("Location: $url", true, 301);
 		exit;
 	} */
+    if ((!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != "on") && $_SERVER['SERVER_NAME'] != "localhost") {
+		echo $_SERVER['HTTPS'];
+	}
 ?>
 
 <!DOCTYPE html>
