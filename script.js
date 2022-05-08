@@ -23,7 +23,7 @@ let sodaObligatoire = number => number == 5 || (number > 5 && number%3 == 0);
 function activateUI(){
     document.getElementById("connection").style.display = "none";
     document.getElementById("content").style.display = "block";
-    openView(3);
+    openView(0);
 }
 
 window.addEventListener("load", event => {

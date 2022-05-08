@@ -183,6 +183,7 @@ main h1{
     color: transparent;
     background: linear-gradient(10deg, rgba(244,84,49,1) 0%, rgba(255,205,0,1) 100%);
     background-clip: text;
+    -webkit-background-clip: text;
 }
 
 #resultsPage button{position: fixed;
