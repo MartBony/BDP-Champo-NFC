@@ -15,7 +15,7 @@ let fetchBracelet = str => fetcher({
     data: { bracelet: str }
 });
 
-let sodaObligatoire = number => number == 5 || (number > 5 && number%3 == 0);
+let sodaObligatoire = number => number >= 5 && (number-5)%3 == 0;
 
 
 //Connection
