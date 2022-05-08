@@ -15,13 +15,15 @@ let fetchBracelet = str => fetcher({
     data: { bracelet: str }
 });
 
+let sodaObligatoire = number => number == 5 || (number > 5 && number%3 == 0);
+
 
 //Connection
 
 function activateUI(){
     document.getElementById("connection").style.display = "none";
     document.getElementById("content").style.display = "block";
-    openView(0);
+    openView(3);
 }
 
 window.addEventListener("load", event => {
@@ -101,6 +103,7 @@ document.querySelector("#resultsPage button").addEventListener("click", event =>
 function drawResults(nombre){
     document.getElementById("super").innerHTML = nombre == 1 ? "er" : "ème";
     document.getElementById("nombre").innerHTML = nombre;
+    document.getElementById("drinkType").innerHTML = sodaObligatoire(nombre) ? "sans" : "avec";
 }
 
 function openView(rank){
