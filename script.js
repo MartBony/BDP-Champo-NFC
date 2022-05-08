@@ -103,7 +103,7 @@ document.querySelector("#resultsPage button").addEventListener("click", event =>
 function drawResults(nombre){
     document.getElementById("super").innerHTML = nombre == 1 ? "er" : "ème";
     document.getElementById("nombre").innerHTML = nombre;
-    document.getElementById("drinkType").innerHTML = sodaObligatoire(nombre) ? "sans" : "avec";
+    document.getElementById("drinkType").innerHTML = sodaObligatoire(nombre) ? "sans alcool" : "quelconque";
 }
 
 function openView(rank){
