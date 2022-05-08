@@ -164,6 +164,7 @@ main h1{
 }
 
 #resultsPage h1{
+    margin: 0;
     transform: translateY(var(--titletranslate)) scale(var(--titlescale));
     animation: 200ms animresults2 forwards cubic-bezier(.18,.89,.32,1.28);
 }
@@ -174,6 +175,7 @@ main h1{
 }
 
 #resultsPage p{
+    margin: 0;
     font-size: 0.8em;
     opacity: 0;
     color: #fa885d;
