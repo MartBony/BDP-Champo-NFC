@@ -174,13 +174,14 @@ main h1{
 }
 
 #resultsPage p{
+    font-size: 0.8em;
     opacity: 0;
     color: #fa885d;
     animation: 50ms 150ms animresults2 forwards cubic-bezier(.08,.82,.17,1);
 }
 
 #drinkType{
-    font-size: 2em;
+    font-size: 1.5em;
     color: transparent;
     background: linear-gradient(10deg, rgba(244,84,49,1) 0%, rgba(255,205,0,1) 100%);
     background-clip: text;
